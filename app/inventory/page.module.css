@@ -1,0 +1,51 @@
+.container {
+    min-height: 100vh;
+    background-color: hsl(var(--background));
+}
+
+.header {
+    border-bottom: 1px solid hsl(var(--border));
+    background-color: hsl(var(--card));
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main {
+    padding: 2rem 0;
+}
+
+.welcomeSection {
+    margin-bottom: 2rem;
+}
+
+.welcomeTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.welcomeText {
+    color: hsl(var(--muted-foreground));
+}

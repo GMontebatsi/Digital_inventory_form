@@ -1,0 +1,29 @@
+.textarea {
+    display: flex;
+    min-height: 5rem;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--input));
+    background-color: transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    outline: none;
+    resize: vertical;
+}
+
+.textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+.textarea:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+}
+
+.textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
