@@ -38,15 +38,15 @@ export default function AdminDashboard() {
                 </div>
                 <nav className={styles.nav}>
                     <div className={`${styles.navItem} ${styles.navItemActive}`}>
-                        <LayoutDashboard size={20} className="mr-2 inline" />
+                        <LayoutDashboard size={20} className={styles.navIcon} />
                         Dashboard
                     </div>
                     <div className={styles.navItem}>
-                        <ClipboardCheck size={20} className="mr-2 inline" />
+                        <ClipboardCheck size={20} className={styles.navIcon} />
                         Inspections
                     </div>
                     <div className={styles.navItem}>
-                        <Users size={20} className="mr-2 inline" />
+                        <Users size={20} className={styles.navIcon} />
                         Students
                     </div>
                 </nav>
@@ -56,14 +56,14 @@ export default function AdminDashboard() {
             <main className={styles.main}>
                 <header className={styles.header}>
                     <h1 className={styles.title}>Residence Officer Dashboard</h1>
-                    <div className="flex items-center gap-4">
-                        <div className="relative">
+                    <div className={styles.headerActions}>
+                        <div className={styles.searchWrapper}>
                             <input
                                 type="text"
                                 placeholder="Search rooms..."
-                                className="pl-10 pr-4 py-2 border rounded-full text-sm"
+                                className={styles.searchInput}
                             />
-                            <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
+                            <Search className={styles.searchIcon} size={16} />
                         </div>
                     </div>
                 </header>
@@ -103,18 +103,18 @@ export default function AdminDashboard() {
                         <tbody>
                             {isLoading ? (
                                 <tr>
-                                    <td colSpan="5" className="p-8 text-center text-gray-500">Loading submissions...</td>
+                                    <td colSpan="5" className={styles.emptyMessage}>Loading submissions...</td>
                                 </tr>
                             ) : submissions.length === 0 ? (
                                 <tr>
-                                    <td colSpan="5" className="p-8 text-center text-gray-500">No submissions found yet.</td>
+                                    <td colSpan="5" className={styles.emptyMessage}>No submissions found yet.</td>
                                 </tr>
                             ) : submissions.map((s) => {
                                 const issues = getIssueCount(s.items);
                                 return (
                                     <tr key={s.id}>
                                         <td className={styles.td}>
-                                            <div className="font-bold">{s.user.userId || 'N/A'}</div>
+                                            <div className={styles.boldText}>{s.user.userId || 'N/A'}</div>
                                         </td>
                                         <td className={styles.td}>{new Date(s.timestamp).toLocaleDateString()}</td>
                                         <td className={styles.td}>{s.user.role}</td>
