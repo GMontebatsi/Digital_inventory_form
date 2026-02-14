@@ -39,12 +39,31 @@ export const InventoryForm = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        try {
+            const user = JSON.parse(localStorage.getItem('inventory_user') || '{}');
+            const submissionData = {
+                user,
+                items: formState,
+            };
 
-        console.log('Form Submitted:', formState);
-        setIsSuccess(true);
-        setIsSubmitting(false);
+            const response = await fetch('/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(submissionData),
+            });
+
+            if (response.ok) {
+                console.log('Form Submitted Successfully');
+                setIsSuccess(true);
+            } else {
+                alert('Submission failed. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('An error occurred. Please check your connection.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (isSuccess) {
