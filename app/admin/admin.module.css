@@ -144,3 +144,49 @@
     background: none;
     border: none;
 }
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchInput {
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    outline: none;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.75rem;
+    color: #94a3b8;
+}
+
+.navIcon {
+    margin-right: 0.5rem;
+}
+
+.boldText {
+    font-weight: 700;
+}
+
+.emptyMessage {
+    padding: 2rem;
+    text-align: center;
+    color: #64748b;
+}
+
+.flexRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
